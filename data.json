@@ -5,9 +5,6 @@
 			"анис"],
 		"isIngr": true,
 		"isPotion": false,
-		"isCanon": true,
-		"author": "",
-		"createDate": "",
 		"difficulty": 1,
 		"form": "Вечнозелёное дерево или куст (в зависимости от вида).",
 		"mainPart":"",
@@ -19,11 +16,10 @@
 			"остановка крови"
 		],
 		"actionsBad": [],
-		"antidote": [],
 		"tags": [
 			"ингредиент",
 			"органическое",
 			"лекарственное"
 		]
-	},
+	}
 ]
