@@ -743,7 +743,7 @@
 		"otherNames": ["Щёлок"],
 		"isIngr": false,
 		"isPotion": true,
-		"difficulty": 0,
+		"difficulty": 3,
 		"rare": 3,
 		"form": "Твёрдый скользкий брусок белого или грязно-серого цвета. Пенится в воде.",
 		"find": [],
