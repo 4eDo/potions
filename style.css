@@ -31,6 +31,11 @@ body {
     padding: 0;
 }
 
+/* Явно задаём цвет текста для всех элементов */
+body, div, p, h3, h4, span, li, td, table, b, i, select, input, button {
+    color: var(--text);
+}
+
 #filter {
     font-family: monospace;
     font-size: 14px;
@@ -85,6 +90,10 @@ input {
     box-sizing: border-box;
 }
 
+input::placeholder {
+    color: var(--tag-color);
+}
+
 select {
     width: 100%;
     max-width: 200px;
@@ -118,8 +127,16 @@ button:hover {
     background: var(--hover);
 }
 
+table {
+    color: var(--text);
+}
+
 tr {
     vertical-align: top;
+}
+
+td {
+    color: var(--text);
 }
 
 td:first-child {
@@ -129,12 +146,14 @@ td:first-child {
 .existPot {
     border-bottom: 1px dotted;
     cursor: pointer;
+    color: var(--text);
 }
 
 .ambiguousPot {
     border-bottom: 1px dotted;
     cursor: pointer;
     position: relative;
+    color: var(--text);
 }
 
 .ambiguousTooltip {
@@ -149,6 +168,7 @@ td:first-child {
     white-space: nowrap;
     box-shadow: 0 2px 8px var(--tooltip-shadow);
     font-size: 13px;
+    color: var(--text);
 }
 
 .ambiguousPot:hover .ambiguousTooltip {
@@ -171,6 +191,8 @@ td:first-child {
     cursor: pointer;
     list-style: none;
     font-size: 14px;
+    color: var(--text);
+    background-color: var(--bg);
 }
 
 #relList li:hover {
@@ -187,6 +209,7 @@ td:first-child {
 
 #relList li .itemName {
     flex: 1;
+    color: var(--text);
 }
 
 #relList li .rightMarkers {
@@ -212,10 +235,19 @@ td:first-child {
     color: var(--text);
 }
 
-h3 {
+#entity {
+    color: var(--text);
+}
+
+#entity div {
+    color: var(--text);
+}
+
+#entity h3 {
     text-align: center;
     padding-top: 5px;
     margin-bottom: 0px;
+    color: var(--text);
 }
 
 .latinName {
@@ -227,25 +259,34 @@ h3 {
     color: var(--text);
 }
 
-p {
+#entity p {
     border: 1px solid var(--card-border);
     padding: 5px;
     margin: 2px;
+    color: var(--text);
+    background-color: var(--bg);
 }
 
-h4 {
+#entity h4 {
     margin: 2px;
     margin-top: 10px;
+    color: var(--text);
+}
+
+#entity b, #entity i {
+    color: var(--text);
 }
 
 #status {
     text-transform: lowercase;
     font-family: monospace;
     font-size: 13px;
+    color: var(--text);
 }
 
 #entity .canonMarker {
     font-size: 16px;
+    color: var(--tag-color);
 }
 
 /* Скроллбар */
