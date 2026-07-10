@@ -283,6 +283,23 @@ function doFilter() {
     updateURL();
 }
 
+// ==================== ОЧИСТКА ФИЛЬТРОВ ====================
+
+function clearFilters() {
+    // Очищаем все текстовые поля
+    document.getElementById("inpSearch").value = '';
+    document.getElementById("inpTags").value = '';
+    document.getElementById("inpAct").value = '';
+    document.getElementById("inpFind").value = '';
+    document.getElementById("inpComp").value = '';
+    
+    // Сбрасываем селект типа
+    document.getElementById("selPot").value = 'all';
+    
+    // Применяем фильтр
+    doFilter();
+}
+
 // ==================== URL-ПАРАМЕТРЫ ====================
 
 function updateURL() {
@@ -443,9 +460,60 @@ function updateStatus(shown, hidden, total) {
         `Показано: ${shown};<br>скрыто: ${hidden};<br>всего: ${total}`;
 }
 
+// ==================== СПОЙЛЕР ФИЛЬТРОВ ====================
+
+function toggleFilters() {
+    const panel = document.getElementById('filtersPanel');
+    const btn = document.getElementById('toggleFiltersBtn');
+    const isHidden = panel.classList.toggle('hidden');
+    
+    if (!isHidden) {
+        btn.classList.add('active');
+        localStorage.setItem('filtersOpen', 'true');
+    } else {
+        btn.classList.remove('active');
+        localStorage.setItem('filtersOpen', 'false');
+    }
+}
+
+function loadFiltersState() {
+    const isOpen = localStorage.getItem('filtersOpen') === 'true';
+    const panel = document.getElementById('filtersPanel');
+    const btn = document.getElementById('toggleFiltersBtn');
+    
+    if (isOpen) {
+        panel.classList.remove('hidden');
+        btn.classList.add('active');
+    }
+}
+
+// ==================== ТЕМА (обновлённая) ====================
+
+function toggleTheme() {
+    document.body.classList.toggle('night');
+    const icon = document.querySelector('#themeToggleBtn .material-symbols-outlined');
+    if (document.body.classList.contains('night')) {
+        icon.textContent = 'light_mode';
+        localStorage.setItem('theme', 'night');
+    } else {
+        icon.textContent = 'dark_mode';
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+function loadTheme() {
+    const saved = localStorage.getItem('theme');
+    const icon = document.querySelector('#themeToggleBtn .material-symbols-outlined');
+    if (saved === 'night') {
+        document.body.classList.add('night');
+        if (icon) icon.textContent = 'light_mode';
+    }
+}
+
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 
 window.addEventListener('DOMContentLoaded', () => {
     loadTheme();
+    loadFiltersState();
     loadPotions();
 });
