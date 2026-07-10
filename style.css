@@ -1,0 +1,247 @@
+:root {
+    --bg: #ffffff;
+    --text: #000000;
+    --border: #33333333;
+    --hover: #3333331a;
+    --tag-color: #999999;
+    --tag-hover: #555555;
+    --card-border: #33333310;
+    --tooltip-bg: #ffffff;
+    --tooltip-shadow: rgba(0,0,0,0.2);
+}
+
+body.night {
+    --bg: #000000;
+    --text: #ffffff;
+    --border: #ffffff33;
+    --hover: #ffffff1a;
+    --tag-color: #666666;
+    --tag-hover: #aaaaaa;
+    --card-border: #ffffff10;
+    --tooltip-bg: #1a1a1a;
+    --tooltip-shadow: rgba(255,255,255,0.1);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color 0.3s, color 0.3s;
+    font-family: sans-serif;
+}
+
+#themeToggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    user-select: none;
+    z-index: 100;
+    color: var(--text);
+}
+
+#filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+#filter div {
+    width: 140px;
+}
+
+input {
+    width: 140px;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 2px 4px;
+}
+
+select {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 2px 4px;
+}
+
+button {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    padding: 2px 8px;
+}
+
+tr {
+    vertical-align: top;
+}
+
+td:first-child {
+    width: 280px;
+}
+
+.existPot {
+    border-bottom: 1px dotted;
+    cursor: pointer;
+}
+
+.ambiguousPot {
+    border-bottom: 1px dotted;
+    cursor: pointer;
+    position: relative;
+}
+
+.ambiguousTooltip {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background: var(--tooltip-bg);
+    border: 1px solid var(--border);
+    padding: 5px 8px;
+    z-index: 1000;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px var(--tooltip-shadow);
+    font-size: 13px;
+}
+
+.ambiguousPot:hover .ambiguousTooltip {
+    display: block;
+}
+
+#relList {
+    padding: 0px;
+    height: 500px;
+    overflow-y: auto;
+}
+
+#relList li {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 3px 5px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 14px;
+}
+
+#relList li:hover {
+    background-color: var(--hover);
+}
+
+#relList li .canonMarkers {
+    width: 64px;
+    min-width: 64px;
+    display: flex;
+    gap: 2px;
+    justify-content: flex-start;
+}
+
+#relList li .itemName {
+    flex: 1;
+}
+
+#relList li .rightMarkers {
+    display: flex;
+    gap: 2px;
+    margin-left: auto;
+    font-size: 14px;
+}
+
+#relList li .canonMarker {
+    font-size: 14px;
+    color: var(--tag-color);
+    transition: color 0.2s;
+}
+
+#relList li:hover .canonMarker {
+    color: var(--tag-hover);
+}
+
+#relList li .rareMarker,
+#relList li .diffMarker {
+    font-size: 16px;
+    color: var(--text);
+}
+
+h3 {
+    text-align: center;
+    padding-top: 5px;
+    margin-bottom: 0px;
+}
+
+.latinName {
+    text-align: center;
+    font-style: italic;
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    color: var(--text);
+}
+
+p {
+    border: 1px solid var(--card-border);
+    padding: 5px;
+    margin: 2px;
+}
+
+h4 {
+    margin: 2px;
+    margin-top: 10px;
+}
+
+#status {
+    text-transform: lowercase;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+#entity .canonMarker {
+    font-size: 16px;
+}
+
+/* Скроллбар */
+#relList::-webkit-scrollbar {
+    width: 8px;
+}
+
+#relList::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+#relList::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 4px;
+}
+
+#relList::-webkit-scrollbar-thumb:hover {
+    background: #aaaaaa;
+}
+
+body.night #relList::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+body.night #relList::-webkit-scrollbar-thumb {
+    background: #444444;
+}
+
+body.night #relList::-webkit-scrollbar-thumb:hover {
+    background: #666666;
+}
+
+#relList {
+    scrollbar-width: thin;
+    scrollbar-color: #cccccc var(--bg);
+}
+
+body.night #relList {
+    scrollbar-color: #444444 #000000;
+}
