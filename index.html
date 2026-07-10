@@ -2,33 +2,49 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> == Поваренная книга Калифорнии == </title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <span id="themeToggle" class="material-symbols-outlined" title="Тема" onclick="toggleTheme()">dark_mode</span>
   <div id="filter">
-	<div><b>Тип:</b> <select id="selPot">
-                    <option value="all" selected>Показать всё</option>
-                    <option value="potions">Только готовое</option>
-                    <option value="ingr">Только ингредиенты</option>
-                </select></div>
-	  <br><br>
-	<div><b>Поиск:</b> <span id="searchCell"></span></div>
-	<div><b>Тег:</b> <span id="tagsCell"></span></div>
-	<div><b>Действие:</b> <span id="actCell"></span></div>
-	<div><b>Места:</b> <span id="findCell"></span></div>
-	<div><b>Состав:</b> <span id="compCell"></span></div>
-  	<button onclick="doFilter()"><span class="material-symbols-outlined">search</span></button>
+    <div class="filter-row always-visible">
+      <div><b>Поиск:</b> <span id="searchCell"></span></div>
+      <div class="filter-buttons">
+        <button id="toggleFiltersBtn" onclick="toggleFilters()" title="Фильтры">
+          <span class="material-symbols-outlined">filter_list</span>
+        </button>
+        <button onclick="doFilter()" title="Поиск">
+          <span class="material-symbols-outlined">search</span>
+        </button>
+        <button onclick="clearFilters()" title="Очистить фильтры">
+          <span class="material-symbols-outlined">filter_alt_off</span>
+        </button>
+        <button id="themeToggleBtn" onclick="toggleTheme()" title="Сменить тему">
+          <span class="material-symbols-outlined">dark_mode</span>
+        </button>
+      </div>
+    </div>
+    <div id="filtersPanel" class="filters-panel hidden">
+      <div><b>Тип:</b> <select id="selPot">
+                      <option value="all" selected>Показать всё</option>
+                      <option value="potions">Только готовое</option>
+                      <option value="ingr">Только ингредиенты</option>
+                    </select></div>
+      <div><b>Тег:</b> <span id="tagsCell"></span></div>
+      <div><b>Действие:</b> <span id="actCell"></span></div>
+      <div><b>Места:</b> <span id="findCell"></span></div>
+      <div><b>Состав:</b> <span id="compCell"></span></div>
+    </div>
   </div>
-<table><tr>
-  <td><ul id="relList"></ul><span id="status"></span></td>
-	<td>
-		<div id="entity"></div>
-	</td>
-</tr></table>
+  <table><tr>
+    <td><ul id="relList"></ul><span id="status"></span></td>
+    <td>
+      <div id="entity"></div>
+    </td>
+  </tr></table>
   <script src="main.js"></script>
 </body>
 
